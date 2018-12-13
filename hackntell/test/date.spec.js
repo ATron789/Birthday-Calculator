@@ -10,6 +10,7 @@ describe('Date methods',function() {
       expect(date.birthdayCalc('1989/12/12')).to.equal(undefined);
     });
   });
+
   describe('monthDiff', function() {
     const bdayDate = new Date('1989/07/09');
     it('Bday Month  < Current Month. BdayDay < TodayDay. Bday next year. Months difference - 1', function() {
@@ -29,4 +30,33 @@ describe('Date methods',function() {
       expect(date.monthDiff(bdayDate,today)).to.equal(1);
     });
   });
+
+  describe('leap year methods', function() {
+    const january = new Date('1996/01/01')
+    const march= new Date('1996/03/01')
+    const january95 = new Date('1995/01/01')
+    const march95= new Date('1995/03/01')
+
+    it ('if leap year and today Month january', function(){
+      expect(date.getDaysInMonth(january)[1]).to.equal(29);
+    });
+    it ('if leap year and today Month march', function(){
+      expect(date.getDaysInMonth(march)[1]).to.equal(28);
+    });
+    it ('if next year leap year and today Month march', function(){
+      expect(date.getDaysInMonth(march95)[1]).to.equal(29);
+    });
+    it ('if next year leap year and today Month January', function(){
+      expect(date.getDaysInMonth(january95)[1]).to.equal(28);
+    });
+  });
+
+  describe('days difference method', function() {
+    let bday= new Date('1989/07/09');
+    let today = new Date('2018/12/13');
+    it('bdayDay < todayDay, no leapYear, todayMonth <= Feb', function(){
+      expect(date.dayDiff(bday,today)).to.equal(27);
+    });
+  });
+  // not testing leapYear because it is a private method
 });
