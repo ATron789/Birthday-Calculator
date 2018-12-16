@@ -1,16 +1,21 @@
 module.exports = {
-  birthdayCalc: function(bdayString) {
-    const bdatDate = new Date(bdayString);
+  birthdayCalc: function(bdayString,name) {
+    const bday = new Date(bdayString);
     const today = new Date();
-    if (today.getDate() === bdatDate.getDate() && today.getMonth() === bdatDate.getMonth()) {
-      return "Porco DIO";
-    };
+    if (today.getDate() === bday.getDate() && today.getMonth() === bday.getMonth()) {
+      return  `Happy Birthday ${name}!`;
+    } else {
+      return `Hello ${name}, your birthday is in ${this.monthDiff(bday,today)} months and ${this.dayDiff(bday,today)} days`;
+    }
   },
 
   monthDiff: function(bday, today) {
     const diffDay = bday.getDate() - today.getDate();
     let diffMonth = bday.getMonth() - today.getMonth();
-    if (diffMonth < 0) diffMonth += 12;
+    if (diffMonth <= 0) diffMonth += 12;
+    if (diffMonth == 12 && diffDay > 0) {
+      diffMonth = 0;
+    };
     if (diffDay < 0) diffMonth -= 1;
     return diffMonth;
   },
@@ -37,6 +42,7 @@ module.exports = {
     diffDay = daysInMonth + diffDay;
     return diffDay;
   }
+
 };
 
 function leapYear(year) {
@@ -57,11 +63,3 @@ function dayDiff(bday,today) {
   diffDay = daysInMonth + diffDay;
   return diffDay;
 };
-//
-//
-//
-//
-//
-// console.log(aBday.getMonth()-today.getMonth());
-//
-// // module.exports = {birthdayCalc}
