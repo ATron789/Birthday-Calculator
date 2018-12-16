@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const hbs = require('express-handlebars');
-const { birthdayCalc } = require('./lib/date');
+const date = require('./lib/date');
 
 const app = express();
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'}));
@@ -12,8 +12,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-app.post('/hola', (req, res) => {
-  res.render(`index`, {title: "ciao"});
+app.get('/', (req,res) => {
+  res.render('index', {title: "Birthday Calculator"});
+});
+
+app.post('/results', (req, res) => {
+  res.render('results', {title: "Results", results: date.birthdayCalc(req.body.date,req.body.name)});
 });
 
 // eslint-disable-next-line no-console
