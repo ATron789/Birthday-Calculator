@@ -1,22 +1,47 @@
-input {
-  color: red;
+body  {
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;  
+    transform: translate(-50%, -50%);
 }
-input{
-    padding:5px;
+h1 {
+    margin-top: 0;
+    
+    color: #99ffce;
+}
+
+.but-div {
+    margin-top: -5px;
+    text-align: center;
+}
+input.inp {
+    font-size: 1.25em;
+    margin-top: 5px;
+    margin-bottom: 25px;
+    height: 1.25em;
+    width: 250px;
+    padding: 5px;
     border:2px solid #ccc;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
-input[type=date]:focus {
-    border-color:#333;
+label.lab-inp {
+    font-weight: bold;
+    text-align: left;
 }
 
-input[type=submit] {
+input.button {
+    font-size: 1.50em;
+    font-weight: bold;
+    text-align: center;
+    width: 150px;
     padding:5px 15px;
-    background: green;
+    background: #99ffce;
     border:0 none;
     cursor:pointer;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
 }
+
+

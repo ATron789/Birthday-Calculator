@@ -20,5 +20,13 @@ app.post('/results', (req, res) => {
   res.render('results', {title: "Results", results: date.birthdayCalc(req.body.date,req.body.name)});
 });
 
+app.use(function(req, res, next){
+  res.status(404);
+  if (req.accepts('html')) {
+    res.render('404', { url: req.url });
+    return;
+  }
+});
+
 // eslint-disable-next-line no-console
 app.listen(3000, () => console.log('Available at http://localhost:3000'));

@@ -8,17 +8,14 @@ describe('Date methods',function() {
   const march95= new Date('1995/03/01')
 
   describe('BirthdayCalc',function() {
-    const today = new Date('2018/12/16');
+    const today = new Date();
     const name = 'Pippo'
     let birthday = new Date('1989/07/09');
-    birthday.setMonth(today.getMonth());
-    birthday.setDate(today.getDate());
-    bday = birthday.toDateString();
     it('today is the Bday, returns Porco Dio', function() {
-      expect(date.birthdayCalc(bday,name)).to.equal(`Happy Birthday ${name}!`);
+      expect(date.birthdayCalc(today,name)).to.equal(`Happy Birthday ${name}!`);
     });
     it('today is not the birthday', function() {
-      expect(date.birthdayCalc('1989/12/12',name)).to.equal(`Hello ${name}, your birthday is in 11 months and 27 days`);
+      expect(date.birthdayCalc(birthday,name)).to.include(`Hello ${name}, your birthday is in`);
     });
   });
 
