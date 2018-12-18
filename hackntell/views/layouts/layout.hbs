@@ -1,11 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+	<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title> {{title}} </title>
     <link rel="stylesheet" href="/stylish.css">
+	<script>
+		function validateForm() {
+	  	const name = document.forms["form"]["name"].value;
+	  	const date = document.forms["form"]["date"].value;
+	  	if (name == "") {
+	    	alert("Please enter your name");
+	    	return false;
+	  	};
+	  	if (date == "") {
+	    	alert("Please enter your birthday");
+	    	return false;
+	  	};
+
+		}
+	</script>
   </head>
   <body id="main">
     {{{body}}}
   </body>
 </html>
+									
