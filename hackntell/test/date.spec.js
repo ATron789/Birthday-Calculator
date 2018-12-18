@@ -47,22 +47,6 @@ describe('Date methods',function() {
     });
   });
 
-  describe('leap year methods', function() {
-
-    it ('if leap year and today Month january', function(){
-      expect(date.getDaysInMonth(january)[1]).to.equal(29);
-    });
-    it ('if leap year and today Month march', function(){
-      expect(date.getDaysInMonth(march)[1]).to.equal(28);
-    });
-    it ('if next year leap year and today Month march', function(){
-      expect(date.getDaysInMonth(march95)[1]).to.equal(29);
-    });
-    it ('if next year leap year and today Month January', function(){
-      expect(date.getDaysInMonth(january95)[1]).to.equal(28);
-    });
-  });
-
   describe('days difference method', function() {
     let bday= new Date('1989/07/09');
     let todayMore = new Date('2018/12/13');
@@ -90,4 +74,28 @@ describe('Date methods',function() {
       expect(date.dayDiff(bday,todayMore)).to.equal(27);
     });
   });
+
+//   ***NOTE***
+//   I am treating this as private a private methods, so like the leapYear() function.
+//   Because they are private methods,one of the ways to write better Test is to test only
+//   Public methods.
+// } I am leaving dayDiff() and monthDiff() as public methods as they are bit more complex
+//   and they could potentially be for write this code in some other wayused for other projects.
+// if you are curious, you can find the test I run during development for the getDaysInMonth below:
+
+   /* describe('leap year methods', function() {
+
+    it ('if leap year and today Month january', function(){
+      expect(date.getDaysInMonth(january)[1]).to.equal(29);
+    });
+    it ('if leap year and today Month march', function(){
+      expect(date.getDaysInMonth(march)[1]).to.equal(28);
+    });
+    it ('if next year leap year and today Month march', function(){
+      expect(date.getDaysInMonth(march95)[1]).to.equal(29);
+    });
+    it ('if next year leap year and today Month January', function(){
+      expect(date.getDaysInMonth(january95)[1]).to.equal(28);
+    });
+  });*/
 });
